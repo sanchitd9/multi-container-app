@@ -19,3 +19,12 @@ after_success:
   - docker push sanchitd9/react-nginx
   - docker push sanchitd9/react-express-server
   - docker push sanchitd9/react-worker
+
+deploy:
+  region: "us-east-2"
+  app: "multi-container-react"
+  env: "Multi-container-react-env"
+  bucket_name: "elasticbeanstalk-us-east-2-959704192009"
+  bucket_path: "multi-container-react"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

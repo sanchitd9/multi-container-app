@@ -14,3 +14,8 @@ after_success:
   - docker build -t sanchitd9/react-nginx ./nginx
   - docker build -t sanchitd9/react-express-server ./server
   - docker build -t sanchitd9/react-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push sanchitd9/react-client
+  - docker push sanchitd9/react-nginx
+  - docker push sanchitd9/react-express-server
+  - docker push sanchitd9/react-worker
